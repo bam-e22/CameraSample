@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.camerasample.ui.NavButton
+import com.example.camerasample.ui.components.NavButton
 
 @Composable
 fun HomeScreen(

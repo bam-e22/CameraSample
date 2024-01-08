@@ -1,4 +1,4 @@
-package com.example.camerasample.ui
+package com.example.camerasample.ui.components
 
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
