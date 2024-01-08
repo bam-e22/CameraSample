@@ -1,6 +1,7 @@
 package com.example.camerax.basic
 
 import android.Manifest
+import androidx.camera.core.CameraSelector
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
@@ -62,7 +63,15 @@ fun CameraXBasicScreen(
 private fun Contents(
     modifier: Modifier = Modifier
 ) {
-    CameraPreview(
+    Box(
         modifier = modifier
-    )
+    ) {
+        CameraPreview(
+            modifier = Modifier
+                .fillMaxSize(),
+            cameraSelector = {
+                CameraSelector.DEFAULT_FRONT_CAMERA
+            }
+        )
+    }
 }

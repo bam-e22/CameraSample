@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 fun CameraPreview(
     modifier: Modifier = Modifier,
     previewScaleType: PreviewView.ScaleType = PreviewView.ScaleType.FIT_CENTER,
+    cameraSelector: (() -> CameraSelector)? = null,
     imageAnalyzer: ImageAnalysis.Analyzer? = null,
     targetResolution: Size? = null,
 ) {
@@ -30,7 +31,7 @@ fun CameraPreview(
             val executor = ContextCompat.getMainExecutor(context)
             val usecases = mutableListOf<UseCase>()
 
-            val cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+            val cameraSelector = cameraSelector?.invoke() ?: CameraSelector.DEFAULT_FRONT_CAMERA
 
             // preview
             val previewView = PreviewView(context).apply {
