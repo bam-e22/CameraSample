@@ -6,15 +6,15 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.camerasample.ui.screen.HomeScreen
-import com.example.camerasample.ui.screen.HomeViewModel
+import com.example.camera2.basic.Camera2BasicScreen
+import com.example.camera2.basic.Camera2BasicViewModel
+import com.example.camerasample.screen.HomeScreen
+import com.example.camerasample.screen.HomeViewModel
 import com.example.camerasample.ui.theme.CameraSampleTheme
 import com.example.camerax.basic.CameraXBasicScreen
 import com.example.camerax.basic.CameraXBasicViewModel
@@ -56,12 +56,11 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     composable("camera2") {
-                        Surface(
-                            modifier = Modifier
-                                .fillMaxSize(),
-                            color = Color.Blue
-                        ) {
-                        }
+                        Camera2BasicScreen(
+                            navigateUp = navController::navigateUp,
+                            viewModel = hiltViewModel<Camera2BasicViewModel>(),
+                            modifier = Modifier.fillMaxSize()
+                        )
                     }
                 }
             }

@@ -1,6 +1,7 @@
 package com.example.camerax.basic
 
 import android.Manifest
+import androidx.camera.camera2.interop.ExperimentalCamera2Interop
 import androidx.camera.core.CameraSelector
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -59,6 +60,7 @@ fun CameraXBasicScreen(
     }
 }
 
+@androidx.annotation.OptIn(ExperimentalCamera2Interop::class)
 @Composable
 private fun Contents(
     modifier: Modifier = Modifier

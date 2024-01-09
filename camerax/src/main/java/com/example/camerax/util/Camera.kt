@@ -1,6 +1,9 @@
 package com.example.camerax.util
 
 import android.content.Context
+import androidx.camera.camera2.interop.Camera2CameraInfo
+import androidx.camera.camera2.interop.ExperimentalCamera2Interop
+import androidx.camera.core.CameraSelector
 import androidx.camera.lifecycle.ProcessCameraProvider
 import java.util.concurrent.Executor
 import kotlin.coroutines.resume
@@ -19,3 +22,14 @@ suspend fun Context.getCameraProvider(executor: Executor): ProcessCameraProvider
             }, executor)
         }
     }
+
+@ExperimentalCamera2Interop
+fun getCameraSelector(cameraId: String): CameraSelector {
+    return CameraSelector.Builder()
+        .addCameraFilter { cameras ->
+            cameras.filter {
+                Camera2CameraInfo.from(it).cameraId == cameraId
+            }
+        }
+        .build()
+}

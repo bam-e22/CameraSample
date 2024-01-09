@@ -7,12 +7,12 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun Description(
-    text: String,
+    text: String?,
     modifier: Modifier = Modifier
 ) {
     Text(
-        text = text,
-        style = MaterialTheme.typography.bodyMedium,
+        text = text ?: "",
+        style = MaterialTheme.typography.bodySmall,
         modifier = modifier
     )
 }
